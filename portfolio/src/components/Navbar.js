@@ -1,7 +1,12 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../assets/img/logo.png";
- 
+import {
+  faLinkedinIn,
+  faGithub, 
+} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
+
 const Navbar = () => {
   const [showNav, setShowNav] = useState(false);
 //   const [theme, setTheme] = UseLocalStroage("theme", "dark");
@@ -54,7 +59,27 @@ const Navbar = () => {
           {/* <NavLink className="change-theme" onClick={handleToggleTheme}>
             <p>Change Theme</p>
           </NavLink> */}
+          <div className="social-links">
+            <a
+              href="https://www.linkedin.com/in/md-masum-mir"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn Profile"
+            >
+              <FontAwesomeIcon icon={faLinkedinIn} color="#4d4d4e" />
+            </a>
+            <a
+              href="https://github.com/masum-mir"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub Profile"
+            >
+              <FontAwesomeIcon icon={faGithub} color="#4d4d4e" />
+            </a>
+          </div>
         </nav>
+        
+          
       </header> 
   );
 };

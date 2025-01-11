@@ -33,7 +33,7 @@ const About = () => {
           learning cutting-edge technologies and contributing to innovative
           projects."
         </p> 
-      </div> 
+      </div>  
       
     </div>
   );

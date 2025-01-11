@@ -39,7 +39,10 @@ const Skills = () => {
             <li>Frontend Development (React, HTML, CSS, JavaScript)</li>
             <li>Git and Version Control</li>
           </ul>
-          <p>Visit my <a href="https://www.linkedin.com/in/md-masum-a6ab9a290/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">LinkedIn</a> profile for more details. Also you can checkout my cv on this <a href="#" className="link">link</a>.</p>
+          <p className="link">
+            Visit my <a href="https://www.linkedin.com/in/md-masum-mir" target="_blank" rel="noopener noreferrer">LinkedIn</a> profile for more details. Also, you can check out
+            <br/> my CV on this <a href="https://github.com/masum-mir/my-portfolio/blob/main/resume.pdf" target="_blank" rel="noopener noreferrer">link</a>.
+          </p>
         </div> 
       </div>
       <div className="stage-cube-cont">
