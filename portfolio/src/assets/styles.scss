@@ -100,7 +100,7 @@ nav {
     }
 
     h2 {
-      color: #c4bfbf;
+      color: #adaaaa;
       margin-top: 20px;
       font-weight: 400;
       font-size: 11px;
@@ -436,8 +436,7 @@ $shadows-big: multiple-box-shadow(100);
 
 // not found page
 .not-found-container {
-  min-height: 100%;
-  background-color: #f9fafb;
+  min-height: 100%; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -452,7 +451,7 @@ $shadows-big: multiple-box-shadow(100);
   .not-found-title {
     font-size: 6rem;
     font-weight: 700;
-    color: #111827;
+    color: #fff;
     margin: 0 0 1.5rem 0;
   }
 
@@ -461,11 +460,11 @@ $shadows-big: multiple-box-shadow(100);
     h2 {
       font-size: 1.5rem;
       font-weight: 600;
-      color: #1f2937;
+      color: #a6a7a8;
       margin: 0 0 0.5rem 0;
     }
     p {
-      color: #4b5563;
+      color: #a6a7a8;
       margin: 0;
       line-height: 1.5;
     }
@@ -514,10 +513,5 @@ $shadows-big: multiple-box-shadow(100);
     background-color: #1d4ed8;
   }
 
-  .back-button:focus,
-  .home-button:focus {
-    outline: none;
-    ring: 2px solid #3b82f6;
-    ring-offset: 2px;
-  }
+   
 }
