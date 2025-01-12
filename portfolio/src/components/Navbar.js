@@ -22,7 +22,7 @@ const Navbar = () => {
         </Link>
         <nav>
           <NavLink exact="true" activeclassname="active" to="/">
-            <i class="fa fa-home"></i>home
+            <i class="fa fa-home"></i>Home
           </NavLink>
           <NavLink
             exact="true"
@@ -30,7 +30,7 @@ const Navbar = () => {
             to="/about"
             className="about-link"
           > 
-            <i class="fa fa-user"></i>about
+            <i class="fa fa-user"></i>About
           </NavLink>
           <NavLink
             exact="true"
@@ -38,7 +38,7 @@ const Navbar = () => {
             to="/skills"
             className="skill-link"
           > 
-            <i class="fa fa-user"></i>skills
+            <i class="fa fa-user"></i>Skills
           </NavLink>
           <NavLink
             exact="true"
@@ -46,7 +46,7 @@ const Navbar = () => {
             to="/works"
             className="Works-link"
           > 
-            <i class="fa fa-user"></i>works
+            <i class="fa fa-user"></i>Works
           </NavLink>
           <NavLink
             exact="true"
@@ -54,7 +54,7 @@ const Navbar = () => {
             to="/contact"
             className="contact-link"
           >
-            <i class="fa fa-envelope"></i>contact
+            <i class="fa fa-envelope"></i>Contact
           </NavLink>
           {/* <NavLink className="change-theme" onClick={handleToggleTheme}>
             <p>Change Theme</p>
