@@ -38,15 +38,15 @@ const Navbar = () => {
             to="/skills"
             className="skill-link"
           > 
-            <i class="fa fa-user"></i>Skills
+            <i class="fa fa-user"></i>skills
           </NavLink>
           <NavLink
             exact="true"
             activeclassname="active"
-            to="/Works"
+            to="/works"
             className="Works-link"
           > 
-            <i class="fa fa-user"></i>Works
+            <i class="fa fa-user"></i>works
           </NavLink>
           <NavLink
             exact="true"
