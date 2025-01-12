@@ -14,64 +14,118 @@ L.Icon.Default.mergeOptions({
   shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
 });
 
+const INITIAL_FORM_STATE = {
+  from_name: "",
+  from_email: "",
+  message: "",
+};
+const EMAIL_CONFIG = {
+  serviceId: "service_ffmytdh",
+  templateId: "template_ermavzt",
+  userId: "FOxlBTfsiLIqM4zoC",
+};
+
+const GOOGLE_MAPS_API_KEY = "AIzaSyAN2ajE5BVblJHe7F6hZ4p__8DqMpiQBL4";
+
+const MAP_CONFIG = {
+  center: {
+    lat: 23.7621513,
+    lng: 90.4224733,
+  },
+  zoom: 13,
+  style: {
+    width: "100%",
+    height: "400px",
+  },
+};
+
+// const mapContainerStyle = {
+//   width: "100%",
+//   height: "400px",
+// };
+
+// const center = {
+//   lat: 23.7621513,
+//   lng: 90.4224733,
+// };
+
 const Contact = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
   const strAbout = ["C", "o", "n", "t", "a", "c", "t", " ", "m", "e"];
-  const GOOGLE_MAPS_API_KEY = "AIzaSyAN2ajE5BVblJHe7F6hZ4p__8DqMpiQBL4";
-  const [formData, setFormData] = useState({
-    from_name: "",
-    from_email: "",
-    message: "",
-  });
-  const [successMessage, setSuccessMessage] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
 
-  const mapContainerStyle = {
-    width: "100%",
-    height: "400px",
-  };
-
-  const center = {
-    lat: 23.7621513,
-    lng: 90.4224733,
-  };
+  const [formData, setFormData] = useState(INITIAL_FORM_STATE);
+  const [status, setStatus] = useState({ success: "", error: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  // const [successMessage, setSuccessMessage] = useState("");
+  // const [errorMessage, setErrorMessage] = useState("");
 
   const handleEmailClick = () => {
     const email = "masummir773@gmail.com";
-    const subject = "inform masum";
+    const subject = "Contact Request";
     const body = "";
 
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
-    window.open(gmailUrl, "_blank");
+    // const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(
+    //   subject
+    // )}&body=${encodeURIComponent(body)}`;
+    // window.open(gmailUrl, "_blank");
+    const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}`;
+    window.location.href = mailtoUrl;
   };
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setStatus({ success: "", error: "" });
 
-    emailjs
-      .send(
-        "service_ffmytdh", // Replace with your EmailJS Service ID
-        "template_ermavzt", // Replace with your EmailJS Template ID
+    try {
+      const response = await emailjs.send(
+        EMAIL_CONFIG.serviceId,
+        EMAIL_CONFIG.templateId,
         formData,
-        "FOxlBTfsiLIqM4zoC" // Replace with your EmailJS User ID
-      )
-      .then(
-        (response) => {
-          setSuccessMessage("Email sent successfully!");
-          setErrorMessage("");
-          setFormData({ from_name: "", from_email: "", message: "" });
-        },
-        (error) => {
-          setErrorMessage("Failed to send email. Please try again.");
-          setSuccessMessage("");
-        }
+        EMAIL_CONFIG.userId
       );
+
+      if (response.status == 200) {
+        console.log("response:: ", response);
+        setStatus({
+          success: "Thank you! Email sent successfully!",
+          error: "",
+        });
+        setFormData(INITIAL_FORM_STATE);
+      }
+    } catch (e) {
+      setStatus({
+        success: "",
+        error: "Failed to send email. Please try again or contact directly.",
+      });
+      console.error("Email send error:", e);
+    } finally {
+      setIsSubmitting(false);
+    }
+
+    // emailjs
+    //   .send(
+    //     "service_ffmytdh",
+    //     "template_ermavzt",
+    //     formData,
+    //     "FOxlBTfsiLIqM4zoC"
+    //   )
+    //   .then(
+    //     (response) => {
+    //       console.log("data:: ", response, response.status, response.text);
+    //       setSuccessMessage("Thank you! Email sent successfully!");
+    //       setErrorMessage("");
+    //       setFormData({ from_name: "", from_email: "", message: "" });
+    //     },
+    //     (error) => {
+    //       setErrorMessage("Failed to send email. Please try again.");
+    //       setSuccessMessage("");
+    //     }
+    //   );
   };
 
   useEffect(() => {
@@ -92,9 +146,16 @@ const Contact = () => {
             index={15}
           />
         </h1>
-        {successMessage && <p className="success-message">{successMessage}</p>}
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
-         
+        {status.success && (
+          <p className="success-message" role="alert">
+            {status.success}
+          </p>
+        )}
+        {status.error && (
+          <p className="error-message" role="alert">
+            {status.error}
+          </p>
+        )}
         <div className="email-container">
           {/* <div className="email-content">
           <button onClick={handleEmailClick} className="gmail-button">
@@ -120,25 +181,29 @@ const Contact = () => {
           </div> */}
           <form className="contact-form" onSubmit={handleSubmit}>
             <div className="form-group">
-              <label htmlFor="name">Name</label>
+              <label htmlFor="from_name">Name</label>
               <input
                 type="text"
-                id="name"
+                id="from_name"
                 name="from_name"
-                value={formData.name}
+                value={formData.from_name}
                 onChange={handleChange}
                 required
+                disabled={isSubmitting}
+                placeholder="Enter your name"
               />
             </div>
             <div className="form-group">
-              <label htmlFor="email">Email</label>
+              <label htmlFor="from_email">Email</label>
               <input
                 type="email"
-                id="email"
+                id="from_email"
                 name="from_email"
-                value={formData.email}
+                value={formData.from_email}
                 onChange={handleChange}
                 required
+                disabled={isSubmitting}
+                placeholder="Enter your email"
               />
             </div>
             <div className="form-group">
@@ -150,27 +215,41 @@ const Contact = () => {
                 onChange={handleChange}
                 rows="5"
                 required
+                disabled={isSubmitting}
+                placeholder="Your message here..."
               ></textarea>
             </div>
-            <button type="submit" className="submit-button">
-              Send
-            </button>
+            <div className="button-handle">
+              <button
+                type="submit"
+                className="submit-button"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Sending..." : "Send "}
+              </button>
+              <button
+                onClick={handleEmailClick}
+                className="direct-email-button"
+                aria-label="Send direct email"
+              >
+                Or email me directly
+              </button>
+            </div>
           </form>
-          
         </div>
       </div>
-      <div className="map-wrap" style={mapContainerStyle}>
+      <div className="map-wrap" style={MAP_CONFIG.style}>
         <MapContainer
-          center={center}
-          zoom={13}
+          center={MAP_CONFIG.center}
+          zoom={MAP_CONFIG.zoom}
           scrollWheelZoom={false}
-          style={mapContainerStyle}
+          style={MAP_CONFIG.style}
         >
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           />
-          <Marker position={center}>
+          <Marker position={MAP_CONFIG.center}>
             <Popup>
               <b>Dhaka, Bangladesh</b>
             </Popup>

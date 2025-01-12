@@ -371,7 +371,7 @@ $shadows-big: multiple-box-shadow(100);
       margin-top: 20px;
       font-size: 18px;
       color: green;
-      text-align: center; 
+      text-align: center;
     }
 
     .error-message {
@@ -458,22 +458,40 @@ $shadows-big: multiple-box-shadow(100);
       }
     }
 
-    .submit-button {   
-      background-color: #4285f4;
-      color: white;
-      padding: 10px 20px;
-      font-size: 18px;
-      border: none;
-      border-radius: 5px; 
-      width: 150px;       
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    
-      &:hover {
-        background-color: #2a68c7;
+    .button-handle {
+      .submit-button {
+        background-color: #4285f4;
+        color: white;
+        padding: 10px 20px;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        width: 150px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #2a68c7;
+        }
       }
-    } 
-    
+      .direct-email-button {
+        float: right;
+        margin-right: 8%;
+        background-color: #4285f4;
+        color: white;
+        padding: 10px;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        width: 250px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #2a68c7;
+        }
+      }
+    }
   }
 
   .map-wrap {
