@@ -61,10 +61,7 @@ const Skills = () => {
           </div>
           <div className="face5">
             <FontAwesomeIcon icon={faJsSquare} color="#EFD81D" />
-          </div>
-          {/* <div className="face6">
-            <FontAwesomeIcon icon={faGitAlt} color="#EC4D28" />
-          </div> */}
+          </div> 
           <div className="face6">
             <img
               src="https://cdn.worldvectorlogo.com/logos/spring-3.svg"

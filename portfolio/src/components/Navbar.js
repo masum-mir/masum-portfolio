@@ -20,39 +20,34 @@ const Navbar = () => {
         <Link className="logo" to="/" onClick={() => setShowNav(false)}>
           <img src={Logo} alt="Logo" />
         </Link>
-        <nav>
-          <NavLink exact="true" activeclassname="active" to="/">
+        <nav className={showNav ? "mobile-menu active" : "mobile-menu"}>
+          <NavLink exact="true"  to="/">
             <i class="fa fa-home"></i>Home
           </NavLink>
           <NavLink
             exact="true"
-            activeclassname="active"
-            to="/about"
-            className="about-link"
+            className={({ isActive }) => (isActive ? "active" : "")}
+            to="/about" 
           > 
             <i class="fa fa-user"></i>About
           </NavLink>
           <NavLink
-            exact="true"
-            activeclassname="active"
-            to="/skills"
-            className="skill-link"
+            exact="true" className={({ isActive }) => (isActive ? "active" : "")}
+            
+            to="/skills" 
           > 
             <i class="fa fa-user"></i>Skills
           </NavLink>
           <NavLink
-            exact="true"
-            activeclassname="active"
-            to="/works"
-            className="Works-link"
+            exact="true" className={({ isActive }) => (isActive ? "active" : "")}
+            to="/works" 
           > 
             <i class="fa fa-user"></i>Works
           </NavLink>
           <NavLink
             exact="true"
-            activeclassname="active"
-            to="/contact"
-            className="contact-link"
+            className={({ isActive }) => (isActive ? "active" : "")}
+            to="/contact" 
           >
             <i class="fa fa-envelope"></i>Contact
           </NavLink>
@@ -78,7 +73,10 @@ const Navbar = () => {
             </a>
           </div>
         </nav>
-        
+        {/* Mobile Menu Toggle Button */}
+      <button className="menu-toggle" onClick={() => setShowNav(!showNav)}>
+        <i className="fa fa-bars">Mobile</i>
+      </button>
           
       </header> 
   );
