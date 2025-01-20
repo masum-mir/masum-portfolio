@@ -5,10 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #022c43;
-  overflow: hidden;
+  background-color: #022c43; 
   display: block;
 }
+
 .dashboard {
   margin-top: 200px;
   margin-left: 200px;
