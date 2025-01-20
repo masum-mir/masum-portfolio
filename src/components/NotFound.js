@@ -1,7 +1,9 @@
 import React from 'react'; 
+import { Link } from 'react-router-dom';
 
 const NotFound = () => {
   const goBack = () => {
+    console.log("back btn.")
     window.history.back();
   };
 
@@ -32,9 +34,9 @@ const NotFound = () => {
             Go Back
           </button>
           
-          <a href="/" className="home-button">
+          <Link to="/" className="home-button">
             Return Home
-          </a>
+          </Link>
         </div>
       </div>
     </div>

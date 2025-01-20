@@ -1,6 +1,5 @@
 /* Main Content Container */
-.container {
-  position: relative;
+.container { 
   width: 100%;
   min-height: 100vh; 
   margin-top: 100px;
@@ -593,19 +592,15 @@ $shadows-big: multiple-box-shadow(100);
 }
 
 /* not found page */
-.not-found-container {
-  min-height: 100%;
+.not-found-container { 
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 1rem;
+  justify-content: center; 
+  text-align: center; 
+  height: 100%;
 }
 
-.not-found-content {
-  text-align: center;
-  max-width: 32rem;
-  margin-top: -20%;
-
+.not-found-content {  
   .not-found-title {
     font-size: 6rem;
     font-weight: 700;
