@@ -6,21 +6,12 @@
   // overflow: hidden;
 }
 
-/* Mobile menu */
-.menu-toggle {
-  display: none;
-  background: #1f1b1b;
-  border: none;
-  color: white;
-  font-size: 24px;
-  margin-right: 10px;
-  cursor: pointer;
-}
+
 
 /* header */
 .nav-bar {
   display: flex;
-  position: fixed;
+  position: relative;
   justify-content: space-between;
   top: 0;
   left: 0;
@@ -37,10 +28,20 @@
       height: 50px;
       margin: auto 10px;
       border-radius: 50%;
-      border: 2px solid white;
+      border: 2px solid #fff;
     }
   }
 
+  /* Mobile menu */
+.menu-toggle {
+  display: none;
+  background: #1f1b1b;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  margin-right: 10px; 
+}
+ 
   nav {
     display: flex;
     align-items: center;
@@ -105,9 +106,8 @@
       }
 
       .social-links {
-        flex-direction: row;
-        justify-content: center;
-        width: 100%;
+        flex-direction: row; 
+        text-align: center; 
       }
     }
   }
