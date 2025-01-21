@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/masum-portfolio/static/css/main.8cf9a2dc.css",
+    "main.js": "/masum-portfolio/static/js/main.2b76764c.js",
+    "static/js/563.53831ae3.chunk.js": "/masum-portfolio/static/js/563.53831ae3.chunk.js",
+    "static/media/logo.png": "/masum-portfolio/static/media/logo.7bfc91742068a3414753.png",
+    "index.html": "/masum-portfolio/index.html",
+    "main.8cf9a2dc.css.map": "/masum-portfolio/static/css/main.8cf9a2dc.css.map",
+    "main.2b76764c.js.map": "/masum-portfolio/static/js/main.2b76764c.js.map",
+    "563.53831ae3.chunk.js.map": "/masum-portfolio/static/js/563.53831ae3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8cf9a2dc.css",
+    "static/js/main.2b76764c.js"
+  ]
+}
