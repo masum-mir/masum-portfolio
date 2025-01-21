@@ -5,6 +5,7 @@ import {
   faLinkedinIn,
   faGithub, 
 } from "@fortawesome/free-brands-svg-icons";
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
 
 const Navbar = () => {
@@ -22,34 +23,34 @@ const Navbar = () => {
         </Link>
         <nav className={showNav ? "mobile-menu active" : "mobile-menu"}>
           <NavLink exact="true"  to="/">
-            <i class="fa fa-home"></i>Home
+             Home
           </NavLink>
           <NavLink
             exact="true"
             className={({ isActive }) => (isActive ? "active" : "")}
             to="/about" 
           > 
-            <i class="fa fa-user"></i>About
+             About
           </NavLink>
           <NavLink
             exact="true" className={({ isActive }) => (isActive ? "active" : "")}
             
             to="/skills" 
           > 
-            <i class="fa fa-user"></i>Skills
+             Skills
           </NavLink>
           <NavLink
             exact="true" className={({ isActive }) => (isActive ? "active" : "")}
             to="/works" 
           > 
-            <i class="fa fa-user"></i>Works
+            Works
           </NavLink>
           <NavLink
             exact="true"
             className={({ isActive }) => (isActive ? "active" : "")}
             to="/contact" 
           >
-            <i class="fa fa-envelope"></i>Contact
+            Contact
           </NavLink>
           {/* <NavLink className="change-theme" onClick={handleToggleTheme}>
             <p>Change Theme</p>
@@ -75,7 +76,7 @@ const Navbar = () => {
         </nav>
         {/* Mobile Menu Toggle Button */}
       <button className="menu-toggle" onClick={() => setShowNav(!showNav)}>
-        <i className="fa fa-bars">Mobile</i>
+      <FontAwesomeIcon icon={faBars} />
       </button>
           
       </header> 

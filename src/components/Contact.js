@@ -35,7 +35,7 @@ const MAP_CONFIG = {
   zoom: 13,
   style: {
     width: "100%",
-    height: "400px",
+    height: "465px",
   },
 };
 

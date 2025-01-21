@@ -41,7 +41,7 @@ const Skills = () => {
           </ul>
           <p className="link">
             Visit my <a href="https://www.linkedin.com/in/md-masum-mir" target="_blank" rel="noopener noreferrer">LinkedIn</a> profile for more details. Also, you can check out
-            <br/> my CV on this <a href="https://github.com/masum-mir/my-portfolio/blob/main/resume.pdf" target="_blank" rel="noopener noreferrer">link</a>.
+            my CV on this <a href="https://github.com/masum-mir/my-portfolio/blob/main/resume.pdf" target="_blank" rel="noopener noreferrer">link</a>.
           </p>
         </div> 
       </div>
